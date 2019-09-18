@@ -80,7 +80,3 @@ func (l *List) Reverse() {
 	// Make first is last and last is first
 	l.first, l.last = l.last, l.first
 }
-
-func swap(i1, i2 *Item) {
-	i1.Value, i2.Value = i2.Value, i1.Value
-}
