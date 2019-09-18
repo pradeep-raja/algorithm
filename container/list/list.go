@@ -26,7 +26,7 @@ type List struct {
 
 // New returns new list
 func New() *List {
-	return &List{first: nil}
+	return &List{}
 }
 
 // First return first item in the list
