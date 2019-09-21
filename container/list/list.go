@@ -80,3 +80,49 @@ func (l *List) Reverse() {
 	// Make first is last and last is first
 	l.first, l.last = l.last, l.first
 }
+
+// SubList creates new List using 'from' and 'to'. Result list contains both items.
+// If 'from' found after 'to' the list created in reverse order.
+// if -1 provided considered as a length of list
+func (l *List) SubList(from, to int) *List {
+	if from == -1 {
+		from = l.len - 1
+	}
+
+	if to == -1 {
+		to = l.len - 1
+	}
+
+	if from > l.len-1 || to > l.len-1 || from < 0 || to < 0 {
+		return nil
+	}
+
+	list := New()
+	if from < to {
+		item := l.First()
+		for i := 0; i < l.len; i++ {
+			if from <= i {
+				if to >= i {
+					list.Append(item.Value)
+				} else {
+					break
+				}
+			}
+			item = item.Next()
+		}
+	} else {
+		item := l.Last()
+		for i := l.len - 1; i >= 0; i-- {
+			if from >= i {
+				if to <= i {
+					list.Append(item.Value)
+				} else {
+					break
+				}
+			}
+			item = item.Prev()
+		}
+	}
+
+	return list
+}
