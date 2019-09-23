@@ -29,7 +29,7 @@ func New() *List {
 	return &List{}
 }
 
-// First return first item in the list
+// First returns first item in the list
 func (l *List) First() *Item {
 	return l.first
 }
