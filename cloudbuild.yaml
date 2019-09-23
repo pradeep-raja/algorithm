@@ -1,0 +1,9 @@
+steps:
+  - id : go_version
+    name: "gcr.io/cloud-builders/go"
+    args: ["version"]
+  
+  - id: go_test
+    name: "gcr.io/cloud-builders/go"
+    args: ["test", "container/list"]
+    
